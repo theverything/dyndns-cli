@@ -1,0 +1,13 @@
+#! /usr/local/bin/node
+
+var args = require('commander');
+var dyndns = require('../');
+
+args
+  .version('0.0.1')
+  .option('-h, --host <host>', 'Dynamic DNS proxy host')
+  .option('-a, --auth <auth>', 'Auth token used when updating the ip')
+  .option('-nc, --no-cache', 'Check the ip cache before updating')
+  .parse(process.argv);
+
+dyndns(args);
